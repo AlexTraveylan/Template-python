@@ -1,16 +1,21 @@
+"""Logger module"""
 import logging
 
 
 class Logger:
+    """Singleton Logger class"""
+
     _instance = None
     _handlers_set = False
 
     def __new__(cls, *args, **kwargs):
+        """Singleton design pattern"""
         if cls._instance is None:
             cls._instance = super(Logger, cls).__new__(cls)
         return cls._instance
 
     def __init__(self, name="Insert logger name here", level=logging.INFO):
+        """Initialise le logger"""
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)
 
@@ -37,4 +42,8 @@ class Logger:
             self._handlers_set = True
 
     def get_logger(self):
+        """Retourne le logger"""
         return self.logger
+
+
+LOGGER = Logger().get_logger()

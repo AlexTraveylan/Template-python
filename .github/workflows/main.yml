@@ -1,4 +1,4 @@
-name: solgard-bot-last-refactoring
+name: <Modify it by your name>
 on:
   push:
     branches: [main]
