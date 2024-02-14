@@ -1,9 +1,12 @@
 {
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+      "source.unusedImports": "always"
+    }
   },
-  "python.envFile": "${workspaceFolder}/.env",
   "terminal.integrated.env.windows": {
     "PYTHONPATH": "${workspaceFolder}"
   },
@@ -12,6 +15,8 @@
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
-  "editor.rulers": [145, 147],
-  "autoDocstring.docstringFormat": "numpy"
+  "editor.rulers": [
+    98,
+    100
+  ],
 }
