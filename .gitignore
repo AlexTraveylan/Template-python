@@ -1,16 +1,24 @@
 # Python cache files
 __pycache__/
 
+# tests cache
+.pytest_cache/
+
 # Logs
 *.log
+log*.jsonl
 
 # Editor files
 # .vscode/
 
 
-# Environnement virtuel
-env/
-.env
+# virtual environment
+env*/
+.env*
+venv*/
+.venv*/
 
-# Fichiers de build
+# coverage
+.coverage
+htmlcov/
 
