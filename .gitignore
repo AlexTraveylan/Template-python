@@ -1,8 +1,6 @@
 # Python cache files
 __pycache__/
-
-# tests cache
-.pytest_cache/
+*_cache/
 
 # Logs
 *.log
@@ -21,4 +19,6 @@ venv*/
 # coverage
 .coverage
 htmlcov/
-
+*.egg-info/
+dist/
+build/

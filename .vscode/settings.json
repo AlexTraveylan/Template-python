@@ -1,10 +1,10 @@
 {
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": "always",
-      "source.unusedImports": "always"
+      "source.unusedImports": "never"
     }
   },
   "terminal.integrated.env.windows": {
@@ -19,4 +19,8 @@
     98,
     100
   ],
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*_cache": true
+  },
 }

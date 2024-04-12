@@ -68,6 +68,19 @@ The project includes a GitHub Actions workflow for continuous integration, which
 
 The application uses Python's built-in logging module, with configuration in `app/adapter/logger/config_log.json`.
 
+## package
+
+To create the package, run the following command:
+```bash
+python setup.py sdist bdist_wheel
+```
+
+The package is available on whl file in the dist folder. To install it, run the following command:
+```bash
+pip install dist/<app-name>-0.1-py3-none-any.whl
+```
+Note : 0.1 is the version of the package, change it if needed.
+
 ## Contributing
 
 Contributions are welcome. Please submit a pull request or create an issue to discuss the changes.
