@@ -20,8 +20,8 @@
     88,
     90
   ],
-  // "files.exclude": {
-  //   "**/__pycache__": true,
-  //   "**/*_cache": true
-  // },
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*_cache": true
+  },
 }
