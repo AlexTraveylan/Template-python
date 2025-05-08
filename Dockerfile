@@ -1,17 +1,38 @@
-# Use an official Python runtime as a parent image
-FROM python:3.10
+ARG PYTHON_VERSION=3.13.0
+FROM python:${PYTHON_VERSION}-slim as base
 
-# Set the working directory in the container to /app
+# Prevents Python from writing pyc files.
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Keeps Python from buffering stdout and stderr to avoid situations where
+# the application crashes without emitting any logs due to buffering.
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 
-# Add the current directory contents into the container at /app
-ADD . /app
+# Create a non-privileged user that the app will run under.
+# See https://docs.docker.com/go/dockerfile-user-best-practices/
+ARG UID=10001
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "/nonexistent" \
+    --shell "/sbin/nologin" \
+    --no-create-home \
+    --uid "${UID}" \
+    appuser
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Copy the source code into the container.
+COPY . .
+
+# Install dependencies using uv from pyproject.toml
+RUN uv sync --no-dev --frozen --no-cache
+
+# Switch to the non-privileged user to run the application.
+USER appuser
 
 # Run app.py when the container launches
 CMD ["python", "app/main.py"]
