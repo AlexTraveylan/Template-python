@@ -15,7 +15,7 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "app.main:app",
+                "src.main:src",
                 "--reload"
             ],
             "jinja": true
