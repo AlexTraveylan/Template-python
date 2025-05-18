@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 @atexit.register
-def exit_function():
+def exit_function() -> None:
     """Auto execute when application end"""
 
     logger.info("application ended")
